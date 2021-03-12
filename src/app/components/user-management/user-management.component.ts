@@ -7,6 +7,8 @@ import {
 } from '@angular/forms';
 import { UserFacadeService } from '@facades/auth';
 import { UserModel } from '@models/user.model';
+import { MessageService } from '@services/message.service';
+import { PassengerService } from '@services/passenger.service';
 import { AuthFacadeService } from '../login/auth.facade.service';
 
 @Component({
@@ -17,7 +19,7 @@ import { AuthFacadeService } from '../login/auth.facade.service';
 export class UserManagementComponent implements OnInit {
   public form!: FormGroup;
   public user?: UserModel | null;
-  constructor(private fb: FormBuilder, private userFacade: AuthFacadeService) {
+  constructor(private fb: FormBuilder, private userFacade: AuthFacadeService, private passengerService: PassengerService, private mesageService: MessageService) {
     this.createForm();
   }
 
@@ -53,6 +55,11 @@ export class UserManagementComponent implements OnInit {
   get pnombre() {return this.form.get('pnombre');}
   save(): void {
     let value = this.form.value;
-    console.log(value);
+    this.passengerService.createPassenger$(value).subscribe(resp => {
+      console.log(resp)
+    },error => {
+       console.log('error', error)
+       this.mesageService.showCustom(error.error, null, "error");
+    })
   }
 }

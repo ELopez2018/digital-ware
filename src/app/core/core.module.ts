@@ -9,6 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { environment } from "src/environments/environment";
 import { ROOT_REDUCERS } from '@root/core/store/reducer.index';
 import { effects } from "./store/effetcs.index";
+import { InterceptorService } from "./Interceptors/interceptor.service";
 
 @NgModule({
     declarations: [],
@@ -36,11 +37,11 @@ export class CoreModule {
         return {
             ngModule: CoreModule,
             providers: [
-                // {
-                //     provide: HTTP_INTERCEPTORS,
-                //     useClass: InterceptorService,
-                //     multi: true
-                //   },
+                {
+                    provide: HTTP_INTERCEPTORS,
+                    useClass: InterceptorService,
+                    multi: true
+                  },
             ]
         };
     }
