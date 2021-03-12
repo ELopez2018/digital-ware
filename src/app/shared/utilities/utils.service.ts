@@ -3,8 +3,6 @@ import { LocalStorageService } from '@services/local-storage.service';
 import { MessageService } from '@services/message.service';
 import { Subject } from 'rxjs';
 
-
-
 // import { LocalStorageService } from './LocalStorage.service';
 
 @Injectable({
@@ -12,19 +10,19 @@ import { Subject } from 'rxjs';
 })
 export class UtilsService {
 private loaderStatus = new Subject<boolean>();
-  constructor(private _localStorageService: LocalStorageService, private messageService: MessageService) { }
+  constructor(private _localStorageService: LocalStorageService,) { }
     /**
      *
      * @param message mensaje: una cadena de texto
      * @param buttontex button: titulo del mensaje
      * @param messageType  cadena de texto con las opciones error, success, warn
      */
-  public createAlert(        message: string,
-    buttontex: string,
-    messageType: "error" | "success" | "warn")
-    {
-    this.messageService.showCustom(message,buttontex,messageType);
-  }
+  // public createAlert(        message: string,
+  //   buttontex: string,
+  //   messageType: "error" | "success" | "warn")
+  //   {
+  //   this.messageService.showCustom(message,buttontex,messageType);
+  // }
   loading$ = this.loaderStatus.asObservable();
 
   loading(value: boolean = true) {

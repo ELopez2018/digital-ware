@@ -48,19 +48,4 @@ export class AuthEffects {
       )
     )
   );
-  // logoutSuccessEffect$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType( AuthActions.LogoutSuccess),
-  //     tap((e) => this.router.navigateByUrl('auth')),
-  //     // switchMap((e) =>
-  //     //   this.authService.logout$().pipe(
-  //     //     map((e) => AuthActions.LogoutSuccess({msg:'Salio del sistema'})),
-  //     //     tap((e) => this.authService.logout$()),
-  //         // catchError((error: HttpErrorResponse) =>
-  //         //   of(AuthActions.loginError({ error: error.message }))
-  //         // )
-  //       // )
-  //     // )
-  //   )
-  // );
 }

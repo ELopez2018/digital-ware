@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { AuthenticateModel } from '@models/security/authenticate.model';
+
 import { UserModel } from '@models/user.model';
 import * as fromAppRoot from '@root/core/store/reducer.index';
 import { AuthActions } from '@root/core/store/actions.index';
 import { LocalStorageService } from '@services/local-storage.service';
 import { Router } from '@angular/router';
+import { AuthenticateModel } from '@models/authenticate.model';
 
 @Injectable({
   providedIn: 'root',

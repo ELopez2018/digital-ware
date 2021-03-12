@@ -2,16 +2,12 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { environment } from "src/environments/environment";
-
 import { ROOT_REDUCERS } from '@root/core/store/reducer.index';
-
-import { InterceptorService } from './interceptors/interceptor.service';
-import { EffectsModule } from '@ngrx/effects';
 import { effects } from "./store/effetcs.index";
 
 @NgModule({

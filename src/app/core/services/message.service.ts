@@ -1,13 +1,13 @@
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Injectable } from "@angular/core";
-import { NotifierComponent } from "@root/shared/notifier/notifier.component";
+import { NotifierComponent } from "@root/shared/components/notifier/notifier.component";
 
 
 @Injectable({
     providedIn: "root",
 })
 export class MessageService {
-    constructor(private snackBar: MatSnackBar) {}
+    constructor(public snackBar: MatSnackBar) {}
     /**
      *
      * @param message mensaje: una cadena de texto

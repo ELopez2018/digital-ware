@@ -5,8 +5,7 @@ import { UserModel } from "@models/user.model";
 import { environment } from "@environments/environment";
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { map, tap } from "rxjs/operators";
-import { AuthenticateModel } from "@models/security/authenticate.model";
-
+import { AuthenticateModel } from "@models/authenticate.model";
 
 @Injectable({
     providedIn: "root",

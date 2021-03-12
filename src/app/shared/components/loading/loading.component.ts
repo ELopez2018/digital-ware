@@ -2,7 +2,8 @@
 import { Component, Injectable, OnInit } from "@angular/core";
 import { ThemePalette } from "@angular/material/core";
 import { ProgressSpinnerMode } from "@angular/material/progress-spinner";
-import { UtilsService } from "../utilities/utils.service";
+import { UtilsService } from "@root/shared/utilities/utils.service";
+
 
 
 

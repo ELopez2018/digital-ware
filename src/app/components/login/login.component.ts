@@ -6,17 +6,18 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticateModel } from '@models/security/authenticate.model';
+
 import { UserModel } from '@models/user.model';
 import { UtilsService } from '@root/shared/utilities/utils.service';
 import { LocalStorageService } from '@services/local-storage.service';
 import { Subscription } from 'rxjs';
 import { AuthFacadeService } from './auth.facade.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
   form: FormGroup;
@@ -53,7 +54,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   suscribirUsuario(): void {
     let sub: Subscription = this.authFacade
       .getCurrentUser$()
-      .subscribe((user) => {
+      .subscribe((user: any ) => {
         if (user) {
           this.router.navigateByUrl('/main');
         }
@@ -62,7 +63,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     let sub2: Subscription = this.authFacade
       .isLoadingAuth$()
-      .subscribe((loading) => {
+      .subscribe((loading: boolean) => {
         if (loading) {
           this.utilService.loading(loading);
         }

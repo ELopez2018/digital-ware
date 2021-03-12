@@ -3,14 +3,11 @@ import {
   CanLoad,
   Route,
   UrlSegment,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  UrlTree,
   CanActivate,
   Router,
 } from '@angular/router';
-import { UserFacadeService } from '@facades/auth/user-facade.service';
-import { AuthFacadeService } from '@root/auth/login/auth.facade.service';
+import { AuthFacadeService } from '@root/components/login/auth.facade.service';
+
 import { Observable, of, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 

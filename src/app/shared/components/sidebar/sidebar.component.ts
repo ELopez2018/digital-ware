@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '@environments/environment';
-import { AuthFacadeService } from '@root/auth/login/auth.facade.service';
+
 import { Subscription } from 'rxjs';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthFacadeService } from '@root/components/login/auth.facade.service';
 import { mockMenuItemsData } from '@root/core/mocks/menu-options.mock';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -16,7 +18,6 @@ export class SidebarComponent implements OnInit {
   user: any;
   clases="collapse"
   clasesUser="collapse"
-  storage = environment.STORAGE;
   menuSidebar = mockMenuItemsData();
   constructor(private authfacade: AuthFacadeService) { }
   ngOnInit(): void {
@@ -36,3 +37,4 @@ collapseUser() {
   this.clasesUser= this.clasesUser =="" ? "collapse" : "";
 }
 }
+

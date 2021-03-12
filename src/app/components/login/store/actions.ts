@@ -1,4 +1,5 @@
-import { AuthenticateModel } from '@models/security/authenticate.model';
+
+import { AuthenticateModel } from '@models/authenticate.model';
 import { UserModel } from '@models/user.model';
 import { createAction, props } from '@ngrx/store';
 

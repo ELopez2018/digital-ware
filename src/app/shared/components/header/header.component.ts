@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthFacadeService } from '@root/auth/login/auth.facade.service';
 import { Subscription } from 'rxjs';
 import { environment } from "@environments/environment";
+import { AuthFacadeService } from '@root/components/login/auth.facade.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,7 +12,6 @@ import { environment } from "@environments/environment";
 export class HeaderComponent implements OnInit {
   subs: Subscription = new Subscription();
   user: any;
-  storage = environment.STORAGE;
   constructor(private authfacade: AuthFacadeService) { }
   ngOnInit(): void {
     this.obtenerUsuario()
