@@ -19,6 +19,23 @@ const routes: Routes = [
         loadChildren: () =>
           import('../user-list/user-list.module').then((m) => m.UserListModule),
       },
+      {
+        path: 'roles',
+        loadChildren: () =>
+          import('../roles/roles.module').then((m) => m.RolesModule),
+      },
+      {
+        path: 'aeronaves',
+        loadChildren: () =>
+          import('../aircraft/aircraft.module').then((m) => m.AircraftModule),
+      },
+      {
+        path: 'alquiler-aeronave',
+        loadChildren: () =>
+          import('../aircraft-rental/aircraft-rental.module').then(
+            (m) => m.AircraftRentalModule
+          ),
+      },
     ],
   },
 ];

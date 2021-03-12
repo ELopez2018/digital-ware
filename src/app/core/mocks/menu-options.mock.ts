@@ -37,12 +37,12 @@ export const mockMenuItemsData = (): any[] => {
         {
           label: 'Crear',
           icon: 'mdi mdi-gauge',
-          routerLink: ['#'],
+          routerLink: ['./aeronaves'],
         },
         {
           label: 'Alquiler',
           icon: 'mdi mdi-gauge',
-          routerLink: ['#'],
+          routerLink: ['./alquiler-aeronave'],
         },
         {
           label: 'Consulta',
@@ -65,7 +65,7 @@ export const mockMenuItemsData = (): any[] => {
         {
           label: 'Roles',
           icon: 'mdi mdi-gauge',
-          routerLink: ['./registro-de-roles'],
+          routerLink: ['./roles'],
         },
       ],
     },
