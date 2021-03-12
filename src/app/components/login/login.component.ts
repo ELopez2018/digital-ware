@@ -39,10 +39,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
   subs: Subscription = new Subscription();
   ngOnInit(): void {
-    this.suscribirUsuario();
+
     this.user = this.localStorageService.getItem('user');
     if (this.user !== null) {
       this.authFacade.setUser(this.user);
+      this.suscribirUsuario();
     }
   }
   createForm(): void {
@@ -54,7 +55,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   suscribirUsuario(): void {
     let sub: Subscription = this.authFacade
       .getCurrentUser$()
-      .subscribe((user: any ) => {
+      .subscribe((user: UserModel | null) => {
         if (user) {
           this.router.navigateByUrl('/main');
         }

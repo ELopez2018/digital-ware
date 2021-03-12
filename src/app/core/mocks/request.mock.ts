@@ -1,4 +1,3 @@
-import { RequestModel } from '@models/management/request.model'
 
 export const mockRequest = () =>(
     {
