@@ -33,7 +33,7 @@ export class PassengerService {
 
   createPassenger$(Data: PersonalDataModel): Observable<PersonalDataModel[]> {
     return this.http
-      .post<PersonalDataModel[]>(this.urlApi + `requestServices`, Data)
+      .post<PersonalDataModel[]>(this.urlApi + `user`, Data)
       .pipe(
         tap((resp) => {
           return resp;

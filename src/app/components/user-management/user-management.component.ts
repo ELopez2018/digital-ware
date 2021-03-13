@@ -32,7 +32,7 @@ export class UserManagementComponent implements OnInit {
   createForm(): void {
     this.form = this.fb.group({
       name: new FormControl('nikname'),
-      email: new FormControl('email', [Validators.required, Validators.email]),
+      email: new FormControl('email@email.com', [Validators.required, Validators.email]),
       avatar: new FormControl(''),
       din: new FormControl('1234567890'),
       pnombre: new FormControl('estarlin', Validators.required),
@@ -41,7 +41,7 @@ export class UserManagementComponent implements OnInit {
       apellidom: new FormControl('valero'),
       genero: new FormControl('Masculino'),
       celular: new FormControl('3204454846'),
-      telefonos: new FormControl('3204454846'),
+      telefono: new FormControl('3204454846'),
       pais: new FormControl('Venezuela'),
       departamento: new FormControl('Trujillo'),
       ciudad: new FormControl('Chejende'),
@@ -55,11 +55,12 @@ export class UserManagementComponent implements OnInit {
   get pnombre() {return this.form.get('pnombre');}
   save(): void {
     let value = this.form.value;
+    console.log(value)
     this.passengerService.createPassenger$(value).subscribe(resp => {
       console.log(resp)
     },error => {
        console.log('error', error)
-       this.mesageService.showCustom(error.error, null, "error");
+       this.mesageService.showCustom(error.error.message, null, "error");
     })
   }
 }
