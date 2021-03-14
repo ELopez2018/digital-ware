@@ -33,7 +33,7 @@ export class PassengerService {
 
   createPassenger$(Data: PersonalDataModel): Observable<PersonalDataModel[]> {
     return this.http
-      .post<PersonalDataModel[]>(this.urlApi + `user`, Data)
+      .post<PersonalDataModel[]>(this.urlApi + `users/fulldata`, Data)
       .pipe(
         tap((resp) => {
           return resp;
@@ -41,10 +41,9 @@ export class PassengerService {
       );
   }
   searchAllPassenger$(
-    Data: PersonalDataModel
   ): Observable<PersonalDataModel[]> {
     return this.http
-      .get<PersonalDataModel[]>(this.urlApi + `requestServices`)
+      .get<PersonalDataModel[]>(this.urlApi + `users/fulldata`)
       .pipe(
         tap((resp) => {
           return resp;

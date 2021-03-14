@@ -1,41 +1,27 @@
 <div class="container-fluid">
   <div class="row header mb-2 text-center">
-    <div class="col-sm-2 align-middle">
-      <!-- <label for="requestName">Nombre: </label> -->
+    <div class="col-sm-4 align-middle">
       <span id="requestName"> Nombre </span>
     </div>
-    <div class="col-sm-3 align-middle">
-      <!-- <label for="requestMail">Correo:</label> -->
+    <div class="col-sm-4 align-middle">
       <span id="requestaMail align-middle">
         Correo
       </span>
     </div>
-    <div class="col-sm-5 align-middle">
-      Tipo de Servicio
-    </div>
-    <div class="col-sm-2">
-      Acciones
+    <div class="col-sm-4 align-middle">
+      Avatar
     </div>
   </div>
 
   <div class="row mt-2 sombra" *ngFor="let user of users">
-    <div class="col-sm-2 ">
-      <!-- <label for="requestName">Nombre: </label> -->
-  {{ user.name }}
+    <div class="col-sm-4 text-center">
+      {{ user.name }}
     </div>
-    <div class="col-sm-3">
-      <!-- <label for="userMail">Correo:</label> -->
-        {{ user.email }}
+    <div class="col-sm-4 text-center">
+      {{ user.email }}
     </div>
-    <div class="col-sm-5">
-      {{ user.departamento }}
-    </div>
-    <div class="col-sm-2 text-center">
-      <!-- <button  mat-fab color="primary" aria-label="Example icon button with a delete icon">Asignar</button> -->
-      <button type="button" title="Asignar"  class="btn btn-primary btn-sm round fas fa-user " ></button>
-      <button type="button"  title="Descartar" class="btn btn-danger  btn-small round fas fa-trash-alt mx-1" ></button>
-
+    <div class="col-sm-4 text-center">
+      <img src="{{ user.avatar }}" width="20%" class=" img-thumbnail img-rounded img-circle " alt="avatar">
     </div>
   </div>
 </div>
-

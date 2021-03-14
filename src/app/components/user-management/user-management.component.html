@@ -12,21 +12,17 @@
             <label class="control-label text-right col-md-3">Tipo de documento</label>
             <div class="col-md-9">
               <select  class="form-control custom-select">
-                <option value="">Cedula de Ciudadania</option>
-                <option value="">Cedula de Extranjeria</option>
+                <option value="CC">Cedula de Ciudadania</option>
+                <option value="CE">Cedula de Extranjeria</option>
               </select>
-              <!-- <small class="form-control-feedback"> Seleccione un tipo </small> -->
-              <!-- <small class="form-control-feedback"> This is inline help </small> -->
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group  row">
-            <!-- <div class="form-group has-danger row"> -->
             <label class="control-label text-right col-md-3">Numero documento</label>
             <div class="col-md-9">
-              <input type="text" class="form-control form-control-danger" placeholder="Número de Documento">
-              <!-- <small class="form-control-feedback"> This field has error. </small> -->
+              <input formControlName="din" type="text" class="form-control form-control-danger" placeholder="Número de Documento">
             </div>
           </div>
         </div>
@@ -37,13 +33,11 @@
             <label class="control-label text-right col-md-3">Usuario</label>
             <div class="col-md-9">
               <input formControlName="name" type="text" class="form-control form-control-danger" placeholder="Nickname o usuario">
-              <!-- <small class="form-control-feedback"> This is inline help </small> -->
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <div [class]=" email?.invalid && email?.touched  ? 'form-group has-danger  row': email?.touched  ?  'form-group has-success row' :'form-group  row'">
-            <!-- <div class="form-group has-danger row"> -->
             <label class="control-label text-right col-md-3">Correo</label>
             <div class="col-md-9">
               <input formControlName="email" type="text" class="form-control form-control-danger" placeholder="correo@correo.com">
@@ -52,26 +46,7 @@
           </div>
         </div>
       </div>
-      <!-- <div class="row">
-        <div class="col-md-6">
-          <div class="form-group row">
-            <label class="control-label text-right col-md-3">Tipo de Persona</label>
-            <div class="col-md-9">
-              <input type="text" class="form-control" placeholder="John doe">
-              <small class="form-control-feedback"> This is inline help </small>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group has-danger row">
-            <label class="control-label text-right col-md-3">Segundo Nombre</label>
-            <div class="col-md-9">
-              <input type="text" class="form-control form-control-danger" placeholder="12n">
-              <small class="form-control-feedback"> This field has error. </small>
-            </div>
-          </div>
-        </div>
-      </div> -->
+
       <div class="row">
         <div class="col-md-6">
           <div [class]="pnombre?.invalid && pnombre?.touched  ? 'form-group has-danger  row': pnombre?.touched  ?  'form-group has-success row' :'form-group row'">
@@ -86,8 +61,7 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Segundo Nombre</label>
             <div class="col-md-9">
-              <input  formControlName="snombre" type="text" class="form-control form-control-danger" placeholder="12n">
-              <!-- <small class="form-control-feedback"> This field has error. </small> -->
+              <input  formControlName="snombre" type="text" class="form-control form-control-danger" placeholder="Segundo Nombre">
             </div>
           </div>
         </div>
@@ -97,8 +71,7 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Primer Apellido</label>
             <div class="col-md-9">
-              <input formControlName="apellidop" type="text" class="form-control" placeholder="John doe">
-              <!-- <small class="form-control-feedback"> This is inline help </small> -->
+              <input formControlName="apellidop" type="text" class="form-control" placeholder="Primer Apellido">
             </div>
           </div>
         </div>
@@ -106,8 +79,7 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Segundo Apellido</label>
             <div class="col-md-9">
-              <input  formControlName="apellidom" type="text" class="form-control form-control-danger" placeholder="12n">
-              <!-- <small class="form-control-feedback"> This field has error. </small> -->
+              <input  formControlName="apellidom" type="text" class="form-control form-control-danger" placeholder="Segundo Apellido">
             </div>
           </div>
         </div>
@@ -117,11 +89,10 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Género</label>
             <div class="col-md-9">
-              <select formControlName="genero" class="form-control custom-select">
+              <select formControlName="genero" value="Elija el genero" class="form-control custom-select">
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
               </select>
-              <!-- <small class="form-control-feedback"> Elija su género </small> -->
             </div>
           </div>
         </div>
@@ -134,45 +105,7 @@
             </div>
           </div>
         </div>
-        <!--/span-->
       </div>
-      <!--/row-->
-      <!-- <div class="row">
-        <div class="col-md-6">
-          <div class="form-group row">
-            <label class="control-label text-right col-md-3">Categoria</label>
-            <div class="col-md-9">
-              <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
-                <option value="Category 1">Category 1</option>
-                <option value="Category 2">Category 2</option>
-                <option value="Category 3">Category 5</option>
-                <option value="Category 4">Category 4</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="form-group row">
-            <label class="control-label text-right col-md-3">Persona</label>
-            <div class="col-md-9">
-              <div class="radio-list">
-                <label class="custom-control custom-radio">
-                  <input id="radio3" name="radio" type="radio" checked="" class="custom-control-input">
-                  <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">Jurídica</span>
-                </label>
-                <label class="custom-control custom-radio">
-                  <input id="radio4" name="radio" type="radio" class="custom-control-input">
-                  <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">Personal</span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
       <h3 class="box-title">Dirección</h3>
       <hr class="m-t-0 m-b-40">
 
@@ -192,7 +125,7 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Departamento</label>
             <div class="col-md-9">
-              <input formControlName="departamento" type="text" class="form-control">
+              <input formControlName="departamento" type="text" class="form-control" placeholder="Departamento o Estado">
             </div>
           </div>
         </div>
@@ -203,7 +136,7 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Ciudad</label>
             <div class="col-md-9">
-              <input formControlName="ciudad" type="text" class="form-control">
+              <input formControlName="ciudad" type="text" class="form-control"placeholder="Ciudad o poblado">
             </div>
           </div>
         </div>
@@ -212,7 +145,7 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Barrio</label>
             <div class="col-md-9">
-              <input formControlName="barrio" type="text" class="form-control">
+              <input formControlName="barrio" type="text" class="form-control" placeholder="Barrio o Sector">
             </div>
           </div>
         </div>
@@ -226,7 +159,7 @@
           <div class="form-group row">
             <label class="control-label text-right col-md-3">Dirección</label>
             <div class="col-md-9">
-              <input formControlName="direccion" type="text" class="form-control">
+              <input formControlName="direccion" type="text" class="form-control"  placeholder="Direccion">
             </div>
           </div>
         </div>
@@ -240,7 +173,7 @@
         <div class="col-md-6">
           <div class="row">
             <div class="col-md-offset-3 col-md-9">
-              <button (click)="save()" type="button" class="btn btn-success">Guardar</button>
+              <button (click)="save()"  [disabled]="form.invalid" type="button" class="btn btn-success">Guardar</button>
               <button type="button" class="btn btn-inverse">Cancelar</button>
             </div>
           </div>

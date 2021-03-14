@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { environment } from '@environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { PersonalDataModel } from '@models/personal-data.model';
 
 @Injectable({
   providedIn: 'root',
@@ -31,42 +30,45 @@ export class AircraftService {
   //   };
   // }
 
-  createAircraft$(Data: PersonalDataModel): Observable<PersonalDataModel[]> {
+  createAircraft$(Data: any): Observable<any[]> {
     return this.http
-      .post<PersonalDataModel[]>(this.urlApi + `requestServices`, Data)
+      .post<any[]>(this.urlApi + `aircraft`, Data)
       .pipe(
         tap((resp) => {
           return resp;
         })
       );
   }
-  searchAllAircraft$(
-    Data: PersonalDataModel
-  ): Observable<PersonalDataModel[]> {
+  searchAllAircraft$(): Observable<any[]> {
+    return this.http.get<any[]>(this.urlApi + `aircraft`).pipe(
+      tap((resp) => {
+        return resp;
+      })
+    );
+  }
+  updateAircraft$(Data: any): Observable<any[]> {
     return this.http
-      .get<PersonalDataModel[]>(this.urlApi + `requestServices`)
+      .put<any[]>(this.urlApi + `aircraft`, Data)
       .pipe(
         tap((resp) => {
           return resp;
         })
       );
   }
-  updateAircraft$(Data: PersonalDataModel): Observable<PersonalDataModel[]> {
+  deleteAircraft$(aircraft: any): Observable<any> {
     return this.http
-      .put<PersonalDataModel[]>(this.urlApi + `requestServices`, Data)
+      .get<any>(this.urlApi + `aircraft/delete/${aircraft.id}`)
       .pipe(
         tap((resp) => {
           return resp;
         })
       );
   }
-  deleteAircraft$(Data: PersonalDataModel): Observable<PersonalDataModel[]> {
-    return this.http
-      .delete<PersonalDataModel[]>(this.urlApi + `requestServices`)
-      .pipe(
-        tap((resp) => {
-          return resp;
-        })
-      );
+  searchOneAircraft$(id: any): Observable<any> {
+    return this.http.get<any>(this.urlApi + `aircraft/${id}/search`).pipe(
+      tap((resp) => {
+        return resp;
+      })
+    );
   }
 }

@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row header mb-2 text-center">
+    <div class="col-sm-3 align-middle">
+      <span id="requestName"> Descripcion </span>
+    </div>
+    <div class="col-sm-3 align-middle">
+      <span id="requestaMail align-middle">
+        Capacidad
+      </span>
+    </div>
+    <div class="col-sm-3 align-middle">
+      Destino
+    </div>
+  </div>
+
+  <div class="row mt-2 sombra" *ngFor="let aircraft of aircraftAll">
+    <div class="col-sm-3 text-center" (dbclick)="selected(aircraft)" >
+      {{ aircraft.descripcion }}
+    </div>
+    <div class="col-sm-3 text-center" (dbclick)="selected(aircraft)" >
+      {{ aircraft.capacidad }}
+    </div>
+    <div class="col-sm-3 text-center" (dbclick)="selected(aircraft)" >
+      {{ aircraft.destino }}
+    </div>
+    <div class="col-sm-3 text-center">
+      <button (click)="edit(aircraft)" type="button" title="Editar"  class="btn btn-warning btn-sm round fa fa-pencil" aria-hidden="true"></button>
+      <button (click)="delete(aircraft)" type="button"  title="Eliminar" class="btn btn-danger  btn-small round fas fa-trash-alt mx-1" aria-hidden="true"></button>
+    </div>
+  </div>
+</div>

@@ -47,7 +47,7 @@ export const mockMenuItemsData = (): any[] => {
         {
           label: 'Consulta',
           icon: 'mdi mdi-gauge',
-          routerLink: ['#'],
+          routerLink: ['./lista-de-aeronaves'],
         },
       ],
     },

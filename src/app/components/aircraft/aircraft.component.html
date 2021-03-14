@@ -2,35 +2,55 @@
   <h4 class="m-b-0 text-white"><span class="mdi mdi-airplane-takeoff"></span> Registro de Aeronaves</h4>
 </div>
 <div class="card-body">
-  <form  class="form-horizontal">
+  <form [formGroup]="form" class="form-horizontal">
     <div class="form-body">
     </div>
 
-    <h3 class="box-title">Configuración</h3>
+    <h3 class="box-title">Registro de la Aeronave</h3>
     <hr class="m-t-0 m-b-40">
-
-     <div class="row">
-        <div class="col-md-6">
-          <div class="form-group row">
-            <label class="control-label text-right col-md-3">Rol</label>
-            <div class="col-md-9">
-              <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
-                <option value="Category 1">Pasajero</option>
-                <option value="Category 2">Piloto</option>
-                <option value="Category 3">Asistente</option>
-                <option value="Category 4">Administrador</option>
-              </select>
-            </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group  row">
+          <label class="control-label text-right col-md-3">Descripcion</label>
+          <div class="col-md-9">
+            <input  formControlName="descripcion" type="text" class="form-control form-control-danger" placeholder="Incluya nombre y tipo de nave">
           </div>
         </div>
       </div>
+      <div class="col-md-6">
+        <div class="form-group  row">
+          <label class="control-label text-right col-md-3">Destino</label>
+          <div class="col-md-9">
+            <input formControlName="destino" type="text" class="form-control form-control-danger" placeholder="Agregue Galaxia, Sistema Solar y Planeta">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group  row">
+          <label class="control-label text-right col-md-3">Capacidad</label>
+          <div class="col-md-9">
+            <input formControlName="capacidad" type="number" class="form-control form-control-danger" placeholder="Capacidad Maxima">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group  row">
+          <label class="control-label text-right col-md-3">Puestos Ocupados</label>
+          <div class="col-md-9">
+            <input formControlName="puestos_ocupados" type="number" class="form-control form-control-danger" placeholder="Pasajeros">
+          </div>
+        </div>
+      </div>
+    </div>
     <hr>
     <div class="form-actions">
       <div class="row">
         <div class="col-md-6">
           <div class="row">
             <div class="col-md-offset-3 col-md-9">
-              <button type="button" class="btn btn-success">Guardar</button>
+              <button  (click)="save()" type="button" [disabled]="form.invalid" class="btn btn-success">Guardar</button>
               <button type="button" class="btn btn-inverse">Cancelar</button>
             </div>
           </div>

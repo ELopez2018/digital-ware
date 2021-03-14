@@ -36,6 +36,13 @@ const routes: Routes = [
             (m) => m.AircraftRentalModule
           ),
       },
+      {
+        path: 'lista-de-aeronaves',
+        loadChildren: () =>
+          import('../aircraft-list/aircraft-list.module').then(
+            (m) => m.AircraftListModule
+          ),
+      },
     ],
   },
 ];

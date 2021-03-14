@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { UserFacadeService } from '@facades/auth';
 import { UserModel } from '@models/user.model';
+import { UtilsService } from '@root/shared/utilities/utils.service';
 import { MessageService } from '@services/message.service';
 import { PassengerService } from '@services/passenger.service';
 import { AuthFacadeService } from '../login/auth.facade.service';
@@ -19,48 +20,67 @@ import { AuthFacadeService } from '../login/auth.facade.service';
 export class UserManagementComponent implements OnInit {
   public form!: FormGroup;
   public user?: UserModel | null;
-  constructor(private fb: FormBuilder, private userFacade: AuthFacadeService, private passengerService: PassengerService, private mesageService: MessageService) {
+  constructor(
+    private fb: FormBuilder,
+    private userFacade: AuthFacadeService,
+    private passengerService: PassengerService,
+    private mesageService: MessageService,
+    public utilService: UtilsService
+  ) {
     this.createForm();
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
   validationsUser(): void {
-    this.userFacade.getCurrentUser$().subscribe((user: UserModel | null) => this.user = user );
+    this.userFacade
+      .getCurrentUser$()
+      .subscribe((user: UserModel | null) => (this.user = user));
   }
   createForm(): void {
     this.form = this.fb.group({
       name: new FormControl('nikname'),
-      email: new FormControl('email@email.com', [Validators.required, Validators.email]),
+      email: new FormControl('email@email1.com', [
+        Validators.required,
+        Validators.email,
+      ]),
       avatar: new FormControl(''),
-      din: new FormControl('1234567890'),
-      pnombre: new FormControl('estarlin', Validators.required),
-      snombre: new FormControl('enrique'),
-      apellidop: new FormControl('lopez'),
-      apellidom: new FormControl('valero'),
-      genero: new FormControl('Masculino'),
-      celular: new FormControl('3204454846'),
-      telefono: new FormControl('3204454846'),
-      pais: new FormControl('Venezuela'),
-      departamento: new FormControl('Trujillo'),
-      ciudad: new FormControl('Chejende'),
-      barrio: new FormControl('El turiamo'),
-      direccion: new FormControl(' casa 1'),
-      fechanacimiento: new FormControl('1977-12-08'),
-      role_id: new FormControl(0),
+      password: new FormControl(''),
+      din: new FormControl(''),
+      pnombre: new FormControl('', Validators.required),
+      snombre: new FormControl(''),
+      apellidop: new FormControl(''),
+      apellidom: new FormControl(''),
+      genero: new FormControl(''),
+      celular: new FormControl(''),
+      telefonos: new FormControl(''),
+      pais: new FormControl(''),
+      departamento: new FormControl(''),
+      ciudad: new FormControl(''),
+      barrio: new FormControl(''),
+      direccion: new FormControl(''),
+      fechanacimiento: new FormControl(''),
     });
   }
-  get email() {return this.form.get('email');}
-  get pnombre() {return this.form.get('pnombre');}
+  get email() {
+    return this.form.get('email');
+  }
+  get pnombre() {
+    return this.form.get('pnombre');
+  }
   save(): void {
+    this.utilService.loading()
     let value = this.form.value;
-    console.log(value)
-    this.passengerService.createPassenger$(value).subscribe(resp => {
-      console.log(resp)
-    },error => {
-       console.log('error', error)
-       this.mesageService.showCustom(error.error.message, null, "error");
-    })
+    console.log(value);
+    this.passengerService.createPassenger$(value).subscribe(
+      (resp: any) => {
+        this.utilService.loading(false);
+        this.mesageService.showCustom(resp.message, null, 'success');
+        this.form.reset();
+      },
+      (error) => {
+        this.utilService.loading(false);
+        this.mesageService.showCustom(error.error.message, null, 'error');
+      }
+    );
   }
 }
